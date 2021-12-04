@@ -1,0 +1,24 @@
+//https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3238/
+
+//Here we have to traverse an arrany from starting to array length
+//2 variable to keep track of consecuitive ones 
+//while traversing if we get 1 then update one variable by one 
+// Calculate max of 2 points to find consecuitiveness of ones
+//if not get 1 then 2nd variable is zero again
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int count1 = 0;
+        int count2 = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] == 1){
+                count2++;
+                count1 = max(count2, count1);
+            }
+            else                
+                count2 = 0;                            
+        }
+        return count1;
+    }
+};
